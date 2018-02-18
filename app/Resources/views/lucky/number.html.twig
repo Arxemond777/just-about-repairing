@@ -1,3 +1,11 @@
 {% include 'footer.html.twig' %}
 
-<h1>Your lucky number is {{ number }}</h1>
+
+<img src="{{ asset('favicon.ico') }}" alt="альтернативный текст">
+<script type="text/javascript" src="{{ asset('js/1.js') }}" ></script>
+<script type="text/javascript" src="{{ asset('css/styles.css') }}" ></script>
+<link rel="stylesheet" type="text/css" href="{{ asset('css/styles.css') }}" />
+{{ constant('Symfony\\Component\\HttpKernel\\Kernel::VERSION') }}
+
+
+<h1 class="example">Your lucky number is {{ number }}</h1>
