@@ -1,0 +1,4 @@
+services:
+#    prostooremonte.example:
+#        class: ProstooremonteBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]

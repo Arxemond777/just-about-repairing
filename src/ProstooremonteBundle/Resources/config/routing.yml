@@ -1,0 +1,3 @@
+prostooremonte_homepage:
+    path:     /
+    defaults: { _controller: ProstooremonteBundle:Default:index }
