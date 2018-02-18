@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8" />
         <title>{% block title %}Просто о ремонте{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
+        {% block stylesheets %}<script type="text/css" src="{{ asset('css/styles.css') }}" ></script>{% endblock %}
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     </head>
     <body>
@@ -12,5 +12,9 @@
         {% block body %}{% endblock %}
         {% block javascripts %}{% endblock %}
         {% include '@ProstooremonteBundle/footer.html.twig' %}
+
+        {% block javascript %}
+
+        {% endblock %}
     </body>
 </html>

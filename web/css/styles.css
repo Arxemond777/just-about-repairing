@@ -1,3 +1,4 @@
+/*TODO Mansur rewrite on relative units of measure*/
 * {
     margin: 0;
     padding: 0;
@@ -13,8 +14,9 @@ body {
 
 #css_left_sidebar {
     float:left;
-    width: 100px;
+    width: 100px; /*TODO Mansur rewrite on relative units of measure*/
     height: 300px;
+    border: 1px solid black;
 }
 
 #css_header {
@@ -32,3 +34,4 @@ body {
     width: 100%;
     background: red;
 }
+/*TODO Mansur rewrite on relative units of measure*/
