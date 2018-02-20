@@ -1,7 +1,9 @@
 admin_prostooremonte:
-    resource: "@AdminProstooremonteBundle/Resources/config/routing.yml"
-    prefix:   /
+    resource: "@AdminProstooremonteBundle/Controller/"
+    type:     annotation
+    prefix:   /secure-admin
 
-prostooremonte:
-    resource: "@ProstooremonteBundle/Resources/config/routing.yml"
+site_prostooremonte:
+    resource: "@SiteProstooremonteBundle/Controller/"
+    type:     annotation
     prefix:   /

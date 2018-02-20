@@ -2,7 +2,7 @@ imports:
     - { resource: parameters.yml }
     - { resource: security.yml }
     - { resource: services.yml }
-    - { resource: "@ProstooremonteBundle/Resources/config/services.yml" }
+    - { resource: "@SiteProstooremonteBundle/Resources/config/services.yml" }
     - { resource: "@AdminProstooremonteBundle/Resources/config/services.yml" }
 
 # Put parameters here that don't need to change on each machine where the app is deployed
@@ -37,13 +37,14 @@ framework:
 twig:
     debug: '%kernel.debug%'
     strict_variables: '%kernel.debug%'
-    paths: #TODO extend this ProstooremonteBundle
-            "%kernel.root_dir%/../src/ProstooremonteBundle/Resources/views/": ProstooremonteBundle
+    paths: #TODO extend this SiteProstooremonteBundle
+            "%kernel.root_dir%/../src/SiteProstooremonteBundle/Resources/views/": SiteProstooremonteBundle
+            "%kernel.root_dir%/../src/AdminProstooremonteBundle/Resources/views/": AdminProstooremonteBundle
 
 # Doctrine Configuration
 doctrine:
     dbal:
-        driver: pdo_mysql
+        driver: pdo_pgsql
         host: '%database_host%'
         port: '%database_port%'
         dbname: '%database_name%'

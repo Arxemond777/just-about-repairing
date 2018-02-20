@@ -5,8 +5,9 @@
     "description": "The \"Symfony Standard Edition\" distribution",
     "autoload": {
         "psr-4": {
-            "AdminProstooremonteBundle\\": "src/AdminProstooremonteBundle",
-            "ProstooremonteBundle\\": "src/ProstooremonteBundle"
+            "SiteProstooremonteBundle\\": "src/SiteProstooremonteBundle",
+            "general\\": "src/general",
+            "AdminProstooremonteBundle\\": "src/AdminProstooremonteBundle"
         },
         "classmap": [ "app/AppKernel.php", "app/AppCache.php" ]
     },

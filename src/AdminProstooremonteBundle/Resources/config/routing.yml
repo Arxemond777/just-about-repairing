@@ -1,3 +1,0 @@
-admin_prostooremonte_homepage:
-    path:     /
-    defaults: { _controller: AdminProstooremonteBundle:Default:index }
