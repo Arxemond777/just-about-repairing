@@ -1,3 +1,17 @@
+<link rel="stylesheet" type="text/css" href="{{ asset('css/SiteProstooremonteBundle/menu/menu.css') }}" />
+<script type="text/javascript" src="{{ asset('js/site/menu.js') }}" ></script>
 <div id="css_left_sidebar">
-    left sidebar
+    {% set uri = constant('SiteProstooremonteBundle\\Resources\\config\\routing\\MainRoutingConst::ARTICLE_PART_OF_URI') %}
+    {% set isParent = constant('general\\AppConst::DEFAULT_PARENT_ID') %}
+
+    {% for item in menu %}
+        <p style="margin-left: {{ 6*item.depth }}px" class="js_item_menu {% if item.parent_id != isParent %}child{% endif %}"
+           data-id="{{ item.id }}"
+           data-parent-id="{{ item.parent_id }}">
+            <a href="{{ uri }}{{ item.url }}">{{ item.name }}</a>
+            {% if item.has_children == true %}
+                <i class="css_menu_arrow_right js_menu_arrow"></i>
+            {% endif %}
+        </p>
+    {% endfor %}
 </div>

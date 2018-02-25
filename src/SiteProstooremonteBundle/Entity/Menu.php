@@ -5,6 +5,8 @@ namespace SiteProstooremonteBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
 
+use general\AppConst;
+
 /**
  * Menu
  *
@@ -48,7 +50,7 @@ class Menu
     /**
      * @var int
      *
-     * @ORM\Column(name="parent_id", type="integer", options={"default" : -1})
+     * @ORM\Column(name="parent_id", type="integer", options={"default" : AppConst::DEFAULT_PARENT_ID})
      */
     private $parentId;
 
@@ -69,7 +71,7 @@ class Menu
     /**
      * @var float
      *
-     * @ORM\Column(name="seo_rating", type="float", options={"default" : -1})
+     * @ORM\Column(name="seo_rating", type="float", options={"default" : AppConst::DEFAULT_PARENT_ID})
      */
     private $seoRating;
 
@@ -85,7 +87,6 @@ class Menu
      * @ORM\OneToMany(targetEntity="Article", mappedBy="menu_article")
      */
     private $articles;
-
 
     public function __construct()
     {
@@ -280,6 +281,22 @@ class Menu
     public function getLastDateModified()
     {
         return $this->lastDateModified;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getArticles()
+    {
+        return $this->articles;
+    }
+
+    /**
+     * @param mixed $articles
+     */
+    public function setArticles($articles)
+    {
+        $this->articles = $articles;
     }
 }
 

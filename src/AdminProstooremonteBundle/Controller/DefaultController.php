@@ -2,9 +2,9 @@
 
 namespace AdminProstooremonteBundle\Controller;
 
-//use general\DB\ConnectDB;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+
 use SiteProstooremonteBundle\Entity\Menu;
 
 class DefaultController extends Controller
@@ -15,11 +15,11 @@ class DefaultController extends Controller
     public function indexAction()
     {
 
-        $b = $this->getDoctrine()
+        /*$getHierarchyOfMenu = $this->getDoctrine()
             ->getRepository(Menu::class)
-            ->findAll();
+            ->getHierarchyOfMenu();
 
-        dump($b);
-        return $this->render('@AdminProstooremonteBundle/Default/index.html.twig');
+        dump($getHierarchyOfMenu);*/
+        return $this->render("@AdminProstooremonteBundle/Default/index.html.twig");
     }
 }

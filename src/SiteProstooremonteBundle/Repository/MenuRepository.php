@@ -2,6 +2,7 @@
 
 namespace SiteProstooremonteBundle\Repository;
 
+use general\AppConst;
 /**
  * MenuRepository
  *
@@ -16,5 +17,53 @@ class MenuRepository extends \Doctrine\ORM\EntityRepository
     {
         parent::__construct($em, $class);
         $this->oDBALConnection = $this->getEntityManager()->getConnection();
+    }
+
+    public function getHierarchyOfMenu($id = AppConst::DEFAULT_PARENT_ID) : array
+    {
+        $sql = "
+              WITH RECURSIVE r AS (
+                  SELECT
+                    0 as depth,
+                    ARRAY[id] AS sort_by,
+                    id,
+                    parent_id,
+                    url,
+                    name,
+                    (SELECT exists(SELECT parent_id
+                                   FROM menu
+                                   WHERE parent_id = pm1.id)) AS has_children
+                  FROM menu AS pm1
+                  WHERE parent_id = ?
+                
+                  UNION
+                
+                  SELECT
+                    depth + 1,
+                    r.sort_by || pm2.id,
+                    pm2.id,
+                    pm2.parent_id,
+                    pm2.url,
+                    pm2.name,
+                    (SELECT exists(SELECT parent_id
+                                   FROM menu
+                                   WHERE parent_id = pm2.id)) AS has_children
+                  FROM menu AS pm2
+                    JOIN r
+                      ON pm2.parent_id = r.id
+                )
+                
+                SELECT *
+                FROM  r
+                ORDER BY sort_by
+        ";
+
+        $query = $this->oDBALConnection->executeQuery(
+            $sql,
+            [$id]
+        );
+
+        $query->execute();
+        return $query->fetchAll(\PDO::FETCH_ASSOC);
     }
 }
