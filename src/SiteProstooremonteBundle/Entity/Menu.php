@@ -3,6 +3,7 @@
 namespace SiteProstooremonteBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * Menu
@@ -79,10 +80,17 @@ class Menu
      */
     private $lastDateModified;
 
+    /**
+     *
+     * @ORM\OneToMany(targetEntity="Article", mappedBy="menu_article")
+     */
+    private $articles;
+
 
     public function __construct()
     {
         $this->lastDateModified = new \DateTime("now");
+        $this->articles = new ArrayCollection();
     }
 
 
