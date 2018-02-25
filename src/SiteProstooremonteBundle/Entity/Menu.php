@@ -84,7 +84,7 @@ class Menu
 
     /**
      *
-     * @ORM\OneToMany(targetEntity="Article", mappedBy="menu_article")
+     * @ORM\OneToMany(targetEntity="Article", mappedBy="menu")
      */
     private $articles;
 

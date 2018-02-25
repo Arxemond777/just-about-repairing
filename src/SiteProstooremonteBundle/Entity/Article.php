@@ -73,15 +73,15 @@ class Article
      */
     private $lastDateModified;
 
+
     /**
      * @var int
      *
-     * @ORM\Column(name="menu_id", type="integer")
-     * @ORM\ManyToOne(targetEntity="Menu", inversedBy="articles_menu")
+     * @ORM\ManyToOne(targetEntity="Menu", inversedBy="articles")
      * @ORM\JoinColumn(name="menu_id", referencedColumnName="id")
      *
      */
-    private $menuId;
+    private $menu;
 
     public function __construct()
     {
@@ -269,17 +269,17 @@ class Article
     /**
      * @return int
      */
-    public function getMenuId()
+    public function getMenu(): int
     {
-        return $this->menuId;
+        return $this->menu;
     }
 
     /**
-     * @param int $menuId
+     * @param int $menu
      */
-    public function setMenuId($menuId)
+    public function setMenu(int $menu)
     {
-        $this->menuId = $menuId;
+        $this->menu = $menu;
     }
 }
 
